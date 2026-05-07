@@ -1,7 +1,7 @@
 function App() {
   return (
     <div className="p-10 text-3xl">
-      MERN News App
+      Dacby Assigment Work
     </div>
   );
 }
