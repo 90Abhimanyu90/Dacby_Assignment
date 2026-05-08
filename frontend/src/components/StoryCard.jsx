@@ -1,4 +1,42 @@
-function StoryCard({ story }) {
+import { useContext } from "react";
+
+import API from "../api/axios";
+import { AuthContext } from "../context/AuthContext";
+
+function StoryCard({ story, refreshBookmarks }) {
+
+  const { user } = useContext(AuthContext);
+
+  const handleBookmark = async () => {
+
+    if (!user) {
+      alert("Please login first");
+      return;
+    }
+
+    try {
+
+      await API.post(
+        `/stories/${story._id}/bookmark`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
+
+      alert("Bookmark updated");
+
+      if (refreshBookmarks) {
+        refreshBookmarks();
+      }
+
+    } catch (error) {
+
+      console.log(error);
+    }
+  };
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-md">
@@ -34,6 +72,7 @@ function StoryCard({ story }) {
         </a>
 
         <button
+          onClick={handleBookmark}
           className="bg-gray-200 px-4 py-2 rounded"
         >
           Bookmark

@@ -16,7 +16,9 @@ function Navbar() {
         <Link to="/bookmarks">Bookmarks</Link>
 
         {user ? (
-          <button onClick={logout}>Logout</button>
+          <button onClick={logout} className="text-red-500">
+            Logout
+          </button>
         ) : (
           <>
             <Link to="/login">Login</Link>

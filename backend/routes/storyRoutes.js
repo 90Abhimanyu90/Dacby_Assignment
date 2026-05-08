@@ -88,5 +88,26 @@ router.post(
     }
   }
 );
+// GET BOOKMARKED STORIES
+router.get(
+  "/bookmarks/all",
+  authMiddleware,
+  async (req, res) => {
 
+    try {
+
+      const user = await User.findById(
+        req.user.id
+      ).populate("bookmarks");
+
+      res.json(user.bookmarks);
+
+    } catch (error) {
+
+      res.status(500).json({
+        message: error.message,
+      });
+    }
+  }
+);
 module.exports = router;
