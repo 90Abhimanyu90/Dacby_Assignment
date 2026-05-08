@@ -52,7 +52,7 @@ Environment Variables
 Create a .env file inside the backend folder and add:
 
 env
-PORT=5000
+PORT=5000 // Not Anymore because of Render facing bugs
 MONGO_URI=Your_MongoDb_ConnectionString
 JWT_SECRET=Your_key
 
