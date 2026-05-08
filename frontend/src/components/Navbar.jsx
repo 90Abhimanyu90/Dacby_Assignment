@@ -10,23 +10,44 @@ function Navbar() {
         Dacby NewsHub
       </Link>
 
-      <div className="flex gap-6 text-lg">
-        <Link to="/">Home</Link>
+      <div className="flex gap-6 items-center text-lg">
 
-        <Link to="/bookmarks">Bookmarks</Link>
+  <Link to="/">
+    Home
+  </Link>
 
-        {user ? (
-          <button onClick={logout} className="text-red-500">
-            Logout
-          </button>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
+  {user && (
+    <Link to="/bookmarks">
+      Bookmarks
+    </Link>
+  )}
 
-            <Link to="/register">Register</Link>
-          </>
-        )}
-      </div>
+  {user ? (
+    <>
+      <p className="text-gray-600">
+        Hi, {user.user.name}
+      </p>
+
+      <button
+        onClick={logout}
+        className="text-red-500"
+      >
+        Logout
+      </button>
+    </>
+  ) : (
+    <>
+      <Link to="/login">
+        Login
+      </Link>
+
+      <Link to="/register">
+        Register
+      </Link>
+    </>
+  )}
+
+</div>
     </nav>
   );
 }

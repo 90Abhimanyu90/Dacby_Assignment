@@ -60,7 +60,7 @@ const scrapeStories = async () => {
         story,
         {
           upsert: true,
-          new: true,
+          returnDocument: "after",
         }
       );
     }

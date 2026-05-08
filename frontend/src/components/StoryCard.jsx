@@ -39,9 +39,9 @@ function StoryCard({ story, refreshBookmarks }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-md">
+    <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
 
-      <h2 className="text-2xl font-bold mb-4">
+      <h2 className="text-2xl font-bold mb-3 leading-snug">
         {story.title}
       </h2>
 
@@ -66,14 +66,14 @@ function StoryCard({ story, refreshBookmarks }) {
         <a
           href={story.url}
           target="_blank"
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded"
         >
           Visit
         </a>
 
         <button
           onClick={handleBookmark}
-          className="bg-gray-200 px-4 py-2 rounded"
+          className="bg-gray-200 hover:bg-gray-300 transition px-4 py-2 rounded"
         >
           Bookmark
         </button>

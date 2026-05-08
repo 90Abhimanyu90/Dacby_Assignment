@@ -52,19 +52,29 @@ function Bookmarks() {
         Your Bookmarks
       </h1>
 
-      <div className="space-y-6">
+      {stories.length === 0 ? (
 
-        {stories.map((story) => (
+  <p className="text-gray-600 text-xl">
+    No bookmarks yet.
+  </p>
 
-          <StoryCard
-            key={story._id}
-            story={story}
-            refreshBookmarks={fetchBookmarks}
-          />
+) : (
 
-        ))}
+  <div className="space-y-6">
 
-      </div>
+    {stories.map((story) => (
+
+      <StoryCard
+        key={story._id}
+        story={story}
+        refreshBookmarks={fetchBookmarks}
+      />
+
+    ))}
+
+  </div>
+
+)}
 
     </div>
   );
